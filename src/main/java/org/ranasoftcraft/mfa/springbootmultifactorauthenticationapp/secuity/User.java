@@ -1,4 +1,4 @@
-package org.ranasoftcraft.mfa.springbootmultifactorauthenticationapp.entity;
+package org.ranasoftcraft.mfa.springbootmultifactorauthenticationapp.secuity;
 
 import lombok.Data;
 

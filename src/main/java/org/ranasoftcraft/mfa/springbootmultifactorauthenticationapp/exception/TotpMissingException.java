@@ -1,26 +1,17 @@
 package org.ranasoftcraft.mfa.springbootmultifactorauthenticationapp.exception;
 
+import javax.naming.AuthenticationException;
+
 /**
  * @author sandeep.rana
  */
-public class TotpMissingException extends RuntimeException {
+public class TotpMissingException extends AuthenticationException{
+    public TotpMissingException(String explanation) {
+        super(explanation);
+    }
+
     public TotpMissingException() {
         super();
     }
 
-    public TotpMissingException(String message) {
-        super(message);
-    }
-
-    public TotpMissingException(String message, Throwable cause) {
-        super(message, cause);
-    }
-
-    public TotpMissingException(Throwable cause) {
-        super(cause);
-    }
-
-    protected TotpMissingException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
-        super(message, cause, enableSuppression, writableStackTrace);
-    }
 }

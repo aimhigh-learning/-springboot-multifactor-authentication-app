@@ -2,12 +2,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <title>MFA</title>
+    <link rel='stylesheet' href='/webjars/bootstrap/5.3.2/css/bootstrap.min.css' />
+    <script src='/webjars/bootstrap/5.3.2/js/bootstrap.min.js'></script>
 </head>
 <body>
 
     <div class="container-fluid">
-        <h3>Welcome</h3>
+        <h3>MFA authentication enabled, Please scan the below QR code</h3>
+        <div class="row">
+            <div class="col-3">
+                <img th:src="${qr}"/>
+            </div>
+            <div class="col-9">
+                <form name="submit-mfa-token" th:action="@{/process-login}" method="post">
+                    <div class="form-group">
+                        <h5 th:text="${message}" style="color:red;"/>
+                        <label for="code">Enter code</label>
+                        <input type="text" name="code" class="form-control" id="code" aria-describedby="emailHelp" placeholder="Enter code" max="6" min="6">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your code with anyone else.</small>
+
+                        <input type="hidden" name="username" class="form-control" id="username" th:value="${username}">
+
+                        <input type="hidden" name="password" class="form-control" id="password" th:value="${password}">
+
+                    </div>
+                    <div style="height:16px"></div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+
     </div>
 
 </body>
