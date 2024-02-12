@@ -2,8 +2,6 @@ package org.ranasoftcraft.mfa.springbootmultifactorauthenticationapp.config;
 
 import lombok.SneakyThrows;
 import org.jboss.aerogear.security.otp.Totp;
-import org.ranasoftcraft.mfa.springbootmultifactorauthenticationapp.exception.TotpFailedException;
-import org.ranasoftcraft.mfa.springbootmultifactorauthenticationapp.exception.TotpMissingException;
 import org.ranasoftcraft.mfa.springbootmultifactorauthenticationapp.secuity.CustomUserDetailsService;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.InternalAuthenticationServiceException;

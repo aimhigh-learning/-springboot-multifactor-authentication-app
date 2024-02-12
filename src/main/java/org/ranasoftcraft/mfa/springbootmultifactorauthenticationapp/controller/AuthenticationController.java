@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 @Controller @Slf4j
@@ -29,9 +27,10 @@ public class AuthenticationController {
         return "login";
     }
 
-    @GetMapping("/welcome")
-    public String welcome (Authentication authentication) {
+    @GetMapping({"/","/welcome"})
+    public String welcome (Authentication authentication, Model model) {
         log.info("username : {}", authentication.getName());
+        model.addAttribute("username", authentication.getName());
         return "welcome";
     }
 
